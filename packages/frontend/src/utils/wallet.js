@@ -162,6 +162,25 @@ export default class Wallet {
                     };
                 }
 
+                if (await wallet.getKeystoneKey(accountId)) {
+                    // wallet.dispatchShowKeystoneModal(true);
+                    // const path = getLedgerHDPath(accountId);
+                    //
+                    // const { client } = ledgerManager;
+                    // if (!client) {
+                    //     store.dispatch(checkAndHideLedgerModal());
+                    //     store.dispatch(handleShowConnectModal());
+                    //     throw new WalletError('The Ledger client is unavailable.', 'connectLedger.noClient');
+                    // }
+                    // const signature = await client.sign(message, path);
+                    // await store.dispatch(setLedgerTxSigned({ status: true, accountId }));
+                    // const publicKey = await this.getPublicKey(accountId, networkId);
+                    // return {
+                    //     signature,
+                    //     publicKey
+                    // };
+                }
+
                 return inMemorySigner.signMessage(message, accountId, networkId);
             }
         };
@@ -238,6 +257,58 @@ export default class Wallet {
         }
         return null;
     }
+
+    async getKeystoneKey(accountId) {
+        // TODO: All callers should specify accountId explicitly
+        accountId = accountId || this.accountId;
+        // TODO: Refactor so that every account just stores a flag if it's on Ledger?
+
+        // special handing for fixing issue #1919
+        if (accountId === ACCOUNT_ID_SUFFIX) {
+            return null;
+        }
+
+        const accessKeys = await this.getAccessKeys(accountId);
+        if (accessKeys) {
+            const localKey = await this.getLocalAccessKey(accountId, accessKeys);
+            const keystoneKey = accessKeys.find((accessKey) => accessKey.meta.type === 'keystone');
+            const localKeyIsNullOrNonMultisigLAK = !localKey || (localKey.permission !== 'FullAccess' && !this.isMultisigKeyInfoView(accountId, localKey));
+            if (keystoneKey && localKeyIsNullOrNonMultisigLAK) {
+                return PublicKey.from(keystoneKey.public_key);
+            }
+        }
+        return null;
+    }
+
+    async addKeystoneAccessKey(path, accountIdOverride) {
+        const accountId = accountIdOverride || this.accountId;
+
+        // additional check if the 2fa is enabled, in case the user was able to omit disabled buttons
+        const account = new nearApiJs.Account(this.connection, accountId);
+        const has2fa = await TwoFactor.has2faEnabled(account);
+        // throw error if 2fa is enabled
+        if (has2fa) {
+            throw new WalletError('Two-Factor Authentication is enabled', 'addKeystoneAccessKey.2faEnabled');
+        }
+
+        const keystonePublicKey = await this.getKeystoneKey(path);
+        const accessKeys = await this.getAccessKeys(accountId);
+        const accountHasKeystoneKey = accessKeys.some((key) => key.public_key === keystonePublicKey.toString());
+        await setKeyMeta(keystonePublicKey, { type: 'keystone' });
+
+        if (!accountHasKeystoneKey) {
+            const account = await this.getAccount(accountId);
+            await account.addKey(keystonePublicKey);
+            await this.postSignedJson('/account/keystoneKeyAdded', { accountId, publicKey: keystonePublicKey.toString() });
+        }
+    }
+
+    async getKeystonePublicKey(path) {
+        // this.dispatchShowLedgerModal(true);
+        // const rawPublicKey = await client.getPublicKey(path);
+        // return new PublicKey({ keyType: KeyType.ED25519, data: rawPublicKey });
+    }
+
 
     save() {
         localStorage.setItem(KEY_ACTIVE_ACCOUNT_ID, this.accountId);

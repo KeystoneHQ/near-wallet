@@ -12,10 +12,10 @@ import {
 
 const NEAR_WALLET_ENV = process.env.NEAR_WALLET_ENV;
 
-assert(
-    Object.values(Environments).some((env) => NEAR_WALLET_ENV === env),
-    `Invalid environment: "${NEAR_WALLET_ENV}"`
-);
+// assert(
+//     Object.values(Environments).some((env) => NEAR_WALLET_ENV === env),
+//     `Invalid environment: "${NEAR_WALLET_ENV}"`
+// );
 
 module.exports = {
     ACCOUNT_HELPER_URL: process.env.REACT_APP_ACCOUNT_HELPER_URL,

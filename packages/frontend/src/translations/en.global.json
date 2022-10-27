@@ -319,6 +319,7 @@
         "signIn": "Sign In",
         "signingIn": "Signing In",
         "signInLedger": "Sign in with Ledger",
+        "signInKeystone": "Sign in with Keystone",
         "skip": "Skip",
         "skipThisForNow": "Skip this for now",
         "stake": "Stake",
@@ -972,6 +973,10 @@
             "desc": "Make sure your ledger is connected securely, and that the NEAR app is open on the device.",
             "title": "Ledger"
         },
+        "keystone": {
+            "desc": "Make sure your keystone is connected securely, and that the NEAR app is open on the device.",
+            "title": "Keystone"
+        },
         "pageText": "If you’ve setup one or more account recovery methods, follow the instructions below to import your account.",
         "pageTitle": "Import Account",
         "phone": {
@@ -1277,6 +1282,10 @@
         "two": "If you have not yet installed the NEAR Ledger app, follow",
         "twoLink": "these instructions"
     },
+    "setupKeystone": {
+        "header": "QR Code Scanning",
+        "one": "Scan the QR code displayed on your Keystone Device"
+    },
     "setupLedgerSteps": {
         "five": "Select the device from the list in the second pop-up and select Connect.",
         "four": "On the first pop-up window, select the Connect button.",
@@ -1321,6 +1330,8 @@
         "header": "Choose a Security Method",
         "ledgerDesc": "Secure your account with a Ledger hardware device.",
         "ledgerTitle": "Ledger Hardware Wallet",
+        "keystoneDesc": "Secure your account with a Keystone hardware device.",
+        "keystoneTitle": "Keystone Hardware Wallet",
         "newPhraseDesc": "Protect your new address with a new and unique passphrase.",
         "newPhraseTitle": "Generate a New Passphrase",
         "notSupportedPhone": "Unfortunately, we do not offer SMS for your region. Please choose email instead.",
@@ -1436,6 +1447,10 @@
             }
         },
         "one": "Before importing your accounts, you’ll need to grant NEAR Wallet permission to access them."
+    },
+    "signInKeystone": {
+        "scanQRCode": "Scan the QR code displayed on your Keystone Device",
+        "invalidQRCode": "Invalid QR code. Please ensure you have selected a valid QR code from your Keystone device."
     },
     "stagingBanner": {
         "desc": "Warning: This is a pre-release version of the NEAR Wallet. There may be bugs, and these bugs may lead to loss of funds. By continuing to use this version, you agree that you understand and accept these risks, and understand that the NEAR Wallet team will be unable to help you.",
@@ -1817,6 +1832,9 @@
         },
         "addLedgerAccessKey": {
             "2faEnabled": "Two-Factor Authentication is enabled. To enable Ledger Hardware Wallet you need to disable Two-Factor Authentication first."
+        },
+        "addKeystoneAccessKey": {
+            "2faEnabled": "Two-Factor Authentication is enabled. To enable Keystone Hardware Wallet you need to disable Two-Factor Authentication first."
         },
         "addLedgerAccountId": {
             "errorRpc": "Error appears while recovering the account."

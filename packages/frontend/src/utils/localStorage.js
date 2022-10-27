@@ -31,6 +31,10 @@ export const setLedgerHdPath = ({ accountId, path }) => {
     localStorage.setItem(`ledgerHdPath:${accountId}`, path);
 };
 
+export const setKeystoneHdPath = ({ accountId, path }) => {
+    localStorage.setItem(`keystoneHdPath:${accountId}`, path);
+};
+
 export const setWalletAccounts = (walletAccountsKey, walletAccounts) => {
     localStorage.setItem(walletAccountsKey, JSON.stringify(walletAccounts));
 };

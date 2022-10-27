@@ -246,7 +246,9 @@ export const {
     checkCanEnableTwoFactor,
     get2faMethod,
     getLedgerKey,
+    getKeystoneKey,
     getLedgerPublicKey,
+    getKeystonePublicKey,
     setupRecoveryMessage,
     deleteRecoveryMethod,
     checkNearDropBalance,
@@ -324,8 +326,16 @@ export const {
         wallet.getLedgerKey.bind(wallet),
         () => ({})
     ],
+    GET_KEYSTONE_KEY: [
+        wallet.getKeystoneKey.bind(wallet),
+        () =>({})
+    ],
     GET_LEDGER_PUBLIC_KEY: [
         wallet.getLedgerPublicKey.bind(wallet),
+        () => ({})
+    ],
+    GET_KEYSTONE_PUBLIC_KEY: [
+        wallet.getKeystonePublicKey.bind(wallet),
         () => ({})
     ],
     SETUP_RECOVERY_MESSAGE: [
@@ -364,6 +374,7 @@ export const {
     getAccessKeys,
     removeAccessKey,
     addLedgerAccessKey,
+    addKeystoneAccessKey,
     sendIdentityVerificationMethodCode,
     disableLedger,
     removeNonLedgerAccessKeys
@@ -375,6 +386,10 @@ export const {
     ],
     ADD_LEDGER_ACCESS_KEY: [
         wallet.addLedgerAccessKey.bind(wallet),
+        () => showAlert({ onlyError: true })
+    ],
+    ADD_KEYSTONE_ACCESS_KEY: [
+        wallet.addKeystoneAccessKey.bind(wallet),
         () => showAlert({ onlyError: true })
     ],
     SEND_IDENTITY_VERIFICATION_METHOD_CODE: [
@@ -431,6 +446,18 @@ export const fundCreateAccountLedger = (accountId, ledgerPublicKey) => async (di
     await setKeyMeta(ledgerPublicKey, { type: 'ledger' });
     const implicitAccountId = Buffer.from(ledgerPublicKey.data).toString('hex');
     const recoveryMethod = 'ledger';
+
+    dispatch(handleFundCreateAccountRedirect({
+        accountId,
+        implicitAccountId,
+        recoveryMethod
+    }));
+};
+
+export const fundCreateAccountKeystone = (accountId, keystonePublicKey) => async (dispatch) => {
+    await setKeyMeta(keystonePublicKey, { type: 'keystone' });
+    const implicitAccountId = Buffer.from(keystonePublicKey.data).toString('hex');
+    const recoveryMethod = 'keystone';
 
     dispatch(handleFundCreateAccountRedirect({
         accountId,
