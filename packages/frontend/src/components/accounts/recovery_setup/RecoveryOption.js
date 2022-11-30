@@ -91,7 +91,7 @@ const Container = styled.div`
             width: 11px;
             background-color: white;
             border-radius: 50%;
-            box-shadow: 1px 0px 2px 0px #0000005;
+            box-shadow: 1px 0px 2px 0px #0000007f;
         }
 
         .title {
@@ -192,6 +192,8 @@ const Icon = ({option, color}) => {
             return <PassPhraseIcon color={color}/>;
         case 'ledger':
             return <HardwareWalletIcon color={color}/>;
+        case 'keystone':
+            return <HardwareWalletIcon color={color}/>;
         default:
             return '';
     }
@@ -225,7 +227,7 @@ const RecoveryOption = ({
                 </div>
                 <Icon option={option} color={active}/>
             </Header>
-            {active && option !== 'phrase' && option !== 'ledger' && <hr/>}
+            {active && option !== 'phrase' && option !== 'ledger' && option !== 'keystone' && <hr/>}
             {!disabled && active && children}
         </Container>
     );

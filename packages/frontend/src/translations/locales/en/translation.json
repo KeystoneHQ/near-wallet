@@ -1321,6 +1321,8 @@
         "header": "Choose a Security Method",
         "ledgerDesc": "Secure your account with a Ledger hardware device.",
         "ledgerTitle": "Ledger Hardware Wallet",
+        "keystoneDesc": "Secure your account with a Keystone hardware device.",
+        "keystoneTitle": "Keystone Hardware Wallet",
         "newPhraseDesc": "Protect your new address with a new and unique passphrase.",
         "newPhraseTitle": "Generate a New Passphrase",
         "notSupportedPhone": "Unfortunately, we do not offer SMS for your region. Please choose email instead.",

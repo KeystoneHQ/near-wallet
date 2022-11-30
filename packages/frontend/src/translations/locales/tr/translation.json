@@ -1088,6 +1088,8 @@
         "header": "Hesabınızın güvenliğini sağlayın",
         "ledgerDesc": "Hesabınızı bir Ledger donanım cihazıyla koruyun.",
         "ledgerTitle": "Ledger Donanım Cüzdanı",
+        "keystoneDesc": "Hesabınızı bir Keystone donanım cihazıyla koruyun.",
+        "keystoneTitle": "Keystone Donanım Cüzdanı",
         "notSupportedPhone": "Maalesef, bölgeniz için SMS hizmetini sunmuyoruz. Bunun yerine lütfen e-postayı seçin.",
         "phoneDesc": "SMS ile doğrulama kodu ve hesap kurtarma bağlantısı alın.",
         "phonePlaceholder": "+1 415 797 8554",

@@ -1144,6 +1144,8 @@
         "header": "Scegli un metodo di protezione",
         "ledgerDesc": "Proteggi il tuo account con un dispositivo hardware Ledger.",
         "ledgerTitle": "Portafoglio Hardware Ledger",
+        "keystoneDesc": "Proteggi il tuo account con un dispositivo hardware Keystone.",
+        "keystoneTitle": "Portafoglio Hardware Keystone",
         "newPhraseDesc": "Proteggi il tuo nuovo indirizzo con una nuova e unica passphrase.",
         "newPhraseTitle": "Genera una nuova passphrase",
         "notSupportedPhone": "Sfortunatamente, non supportiamo gli SMS per la tua regione. Scegli invece l'e-mail.",

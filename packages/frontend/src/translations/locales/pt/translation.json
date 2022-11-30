@@ -1106,6 +1106,8 @@
         "header": "Escolher método de segurança",
         "ledgerDesc": "Faça a segurança de sua conta usando um dispositívo físico Ledger.",
         "ledgerTitle": "Ledger Nano S ou X",
+        "keystoneDesc": "Faça a segurança de sua conta usando um dispositívo físico Keystone.",
+        "keystoneTitle": "Carteira de Hardware Keystone",
         "notSupportedPhone": "Infelizmente, nós não oferecemos SMS para a sua região. Por favor, escolha e-mail.",
         "phoneDesc": "Digite seu número de telefone abaixo e receba um link mágico de recuperação",
         "phonePlaceholder": "+1 415 797 8554",

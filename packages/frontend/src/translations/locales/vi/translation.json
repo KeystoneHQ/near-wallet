@@ -1032,6 +1032,8 @@
         "emailTitle": "Khôi phục bằng Email",
         "header": "Chọn phương thức bảo mật",
         "ledgerTitle": "Ledger Nano S hoặc X",
+        "keystoneDesc": "",
+        "keystoneTitle": "Ví phần cứng Keystone",
         "notSupportedPhone": "Rất tiếc, chúng tôi không cung cấp SMS cho khu vực của bạn. Vui lòng chọn email để thay thế.",
         "phoneDesc": "Nhập số điện thoại của bạn vào bên dưới và nhận liên kết khôi phục",
         "phonePlaceholder": "+1 415 797 8554",

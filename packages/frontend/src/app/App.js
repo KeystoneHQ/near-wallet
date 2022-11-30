@@ -19,6 +19,7 @@ import InitialDepositWrapper from '../components/accounts/create/initial_deposit
 import CreateAccountLanding from '../components/accounts/create/landing/CreateAccountLanding';
 import VerifyAccountWrapper from '../components/accounts/create/verify_account/VerifyAccountWrapper';
 import CreateAccountWithRouter from '../components/accounts/CreateAccount';
+import SetupKeystoneWithRouter from '../components/accounts/keystone/SetupKeystone';
 import LedgerConfirmActionModal from '../components/accounts/ledger/LedgerConfirmActionModal';
 import LedgerConnectModal from '../components/accounts/ledger/LedgerConnectModal/LedgerConnectModalWrapper';
 import SetupLedgerWithRouter from '../components/accounts/ledger/SetupLedger';
@@ -444,6 +445,11 @@ class Routing extends Component {
                                 exact
                                 path="/setup-seed-phrase/:accountId/:step"
                                 component={SetupSeedPhraseWithRouter}
+                            />
+                            <Route
+                                exact
+                                path="/setup-keystone/:accountId"
+                                component={SetupKeystoneWithRouter}
                             />
                             <Route
                                 exact

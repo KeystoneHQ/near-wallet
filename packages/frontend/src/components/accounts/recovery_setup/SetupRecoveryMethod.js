@@ -87,6 +87,9 @@ class SetupRecoveryMethod extends Component {
         } else if (option === 'ledger') {
             Mixpanel.track('SR-Ledger Select ledger');
             redirectTo(`/setup-ledger/${accountId}${location.search}`);
+        } else if (option === 'keystone') {
+            Mixpanel.track('SR-Keystone Select keystone');
+            redirectTo(`/setup-keystone/${accountId}${location.search}`);
         }
     }
 
@@ -112,6 +115,7 @@ class SetupRecoveryMethod extends Component {
             accountId,
             activeAccountId,
             ledgerKey,
+            keystoneKey,
             twoFactor,
             recoveryMethodsLoader,
             continueSending,
@@ -139,6 +143,12 @@ class SetupRecoveryMethod extends Component {
                             disabled={ledgerKey !== null && accountId === activeAccountId}
                         />
                     )}
+                    <RecoveryOption
+                        onClick={() => this.setState({ option: 'keystone' })}
+                        option='keystone'
+                        active={option}
+                        disabled={keystoneKey !== null && accountId === activeAccountId}
+                    />
                     <FormButton
                         color='blue'
                         type='submit'

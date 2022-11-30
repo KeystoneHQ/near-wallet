@@ -1284,6 +1284,8 @@
         "header": "保護你的賬戶",
         "ledgerDesc": "通過 Ledger 硬件錢包保護你的賬戶安全。",
         "ledgerTitle": "Ledger 硬件錢包",
+        "keystoneDesc": "通過 Keystone 硬件錢包保護你的賬戶安全。",
+        "keystoneTitle": "Keystone 硬件錢包",
         "newPhraseDesc": "通過新的助記詞保護新地址。",
         "newPhraseTitle": "創建新助記詞",
         "notSupportedPhone": "抱歉，目前我們暫未對你所在的地區開放短信恢復方式。請選擇郵箱方式。",
